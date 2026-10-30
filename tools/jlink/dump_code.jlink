@@ -1,0 +1,12 @@
+// Read-only dump of the ADT6101P code space (128 KiB window, repeats every 0x20000).
+exitonerror 0
+connect
+mem32 0x0001FFF0 4
+savebin C:\Users\mmsyl\Documents\HLK-LD6004\dumps\2026-10-29\radar_swd\code_00000_a.bin 0x00000000 0x20000
+savebin C:\Users\mmsyl\Documents\HLK-LD6004\dumps\2026-10-29\radar_swd\code_00000_b.bin 0x00000000 0x20000
+savebin C:\Users\mmsyl\Documents\HLK-LD6004\dumps\2026-10-29\radar_swd\code_20000.bin 0x00020000 0x20000
+mem32 0x20018000 4
+mem32 0x2001FFF0 4
+mem32 0x20020000 4
+mem32 0x20040000 4
+q

@@ -1,0 +1,9 @@
+// Read-only: DSP engine block, its runtime base-pointer vars, pinmux, full front-end block.
+exitonerror 0
+connect
+mem32 0x0000d1d0 0x10
+mem32 0x40021000 0x90
+mem32 0x40020030 0x60
+mem32 0x40003000 0x40
+mem32 0x40008000 0x10
+q

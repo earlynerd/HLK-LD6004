@@ -1,0 +1,29 @@
+// Read-only probe of candidate ADT6101P peripheral blocks (no halt, no writes).
+// Keep the session short: the target drops off SWD ~5 s after a halt; plain
+// reads do not halt, but we still finish in well under a second.
+exitonerror 0
+connect
+mem32 0x40001000 8
+mem32 0x40002000 8
+mem32 0x40003000 0x90
+mem32 0x40003100 0x90
+mem32 0x40003200 0x90
+mem32 0x40003800 0x20
+mem32 0x40003930 0x50
+mem32 0x40005000 8
+mem32 0x40006000 8
+mem32 0x40008000 8
+mem32 0x4000C000 0x40
+mem32 0x4000D000 8
+mem32 0x4000E000 8
+mem32 0x4000F000 0x90
+mem32 0x4000F1C0 8
+mem32 0x4000F3C0 8
+mem32 0x40010000 0x10
+mem32 0x40012000 8
+mem32 0x40020000 0x10
+mem32 0x40021000 8
+mem32 0x40022000 0x10
+mem32 0x40023000 8
+mem32 0x40024000 8
+q

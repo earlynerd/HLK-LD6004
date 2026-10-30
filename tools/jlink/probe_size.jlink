@@ -1,0 +1,24 @@
+// Read-only: find where the code memory at 0x0 ends or repeats.
+exitonerror 0
+connect
+mem32 0x00000000 4
+mem32 0x00010000 4
+mem32 0x00020000 4
+mem32 0x00030000 4
+mem32 0x0003FFF0 4
+mem32 0x00040000 4
+mem32 0x00060000 4
+mem32 0x0007FFF0 4
+mem32 0x00080000 4
+mem32 0x000C0000 4
+mem32 0x000FFFF0 4
+mem32 0x00100000 4
+mem32 0x00200000 4
+mem32 0x00400000 4
+mem32 0x01000000 4
+// SRAM extent
+mem32 0x20007FF0 4
+mem32 0x20008000 4
+mem32 0x2000FFF0 4
+mem32 0x20010000 4
+q

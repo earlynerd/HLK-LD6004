@@ -1,0 +1,27 @@
+{
+  "died_at_s": 9.033669710159302,
+  "core_after": {
+    "DHCSR": [
+      16842753,
+      0,
+      0
+    ],
+    "DFSR": [
+      0
+    ],
+    "HFSR": [
+      0
+    ],
+    "ICSR": [
+      4194304
+    ],
+    "AIRCR": [
+      4194631680
+    ]
+  },
+  "S_LOCKUP": false,
+  "S_SLEEP": false,
+  "S_HALT": true,
+  "halted_after": false,
+  "reset": "reset and run"
+}

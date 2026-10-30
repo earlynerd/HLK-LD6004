@@ -1,0 +1,90 @@
+SEGGER J-Link Commander V9.68 (Compiled Aug 12 2026 15:30:27)
+DLL version V9.68, compiled Aug 12 2026 15:29:21
+
+
+J-Link Command File read successfully.
+Processing script file...
+J-Link>exitonerror 0
+J-Link Commander will no longer exit on Error
+J-Link>connect
+J-Link connection not established yet but required for command.
+Connecting to J-Link ...O.K.
+Firmware: J-Link V12 compiled Aug  4 2026 09:26:00
+Hardware version: V12.00
+J-Link uptime (since boot): 0d 10h 31m 05s
+S/N: 822007774
+License(s): GDB
+USB speed mode: High speed (480 MBit/s)
+VTref=3.299V
+Device "CORTEX-M4" selected.
+
+
+Connecting to target via SWD
+Found SW-DP with ID 0x2BA01477
+DPIDR: 0x2BA01477
+CoreSight SoC-400 or earlier
+Scanning AP map to find all available APs
+AP[1]: Stopped AP scan as end of AP map has been reached
+AP[0]: AHB-AP (IDR: 0x24770011, ADDR: 0x00000000)
+Iterating through AP map to find AHB-AP to use
+AP[0]: Core found
+AP[0]: AHB-AP ROM base: 0xE00FF000
+CPUID register: 0x412FC231. Implementer code: 0x41 (ARM)
+Found Cortex-M3 r2p1, Little endian.
+
+**************************
+WARNING: Identified core does not match configuration. (Found: Cortex-M3, Configured: Cortex-M4)
+**************************
+
+FPUnit: 6 code (BP) slots and 2 literal slots
+CoreSight components:
+ROMTbl[0] @ E00FF000
+[0][0]: E000E000 CID B105E00D PID 000BB000 SCS
+[0][1]: E0001000 CID B105E00D PID 003BB002 DWT
+[0][2]: E0002000 CID B105E00D PID 002BB003 FPB
+Memory zones:
+  Zone: "Default" Description: Default access mode
+Cortex-M3 identified.
+J-Link>mem32 0x2000003C 2
+2000003C = 000000C8 00000003 
+J-Link>mem32 0x20000044 1
+20000044 = 00000000 
+J-Link>mem32 0x20000068 1
+20000068 = 00000000 
+J-Link>mem32 0x20000070 1
+20000070 = 00000001 
+J-Link>mem32 0x2000007C 1
+2000007C = 0000001E 
+J-Link>mem32 0x20000088 2
+20000088 = 00000202 47435000 
+J-Link>mem32 0x20000098 2
+20000098 = 3F000000 40C00000 
+J-Link>mem32 0x200000A0 2
+200000A0 = 00000001 00000000 
+J-Link>mem32 0x200000C0 1
+200000C0 = 00000064 
+J-Link>mem32 0x20000D78 0x18
+20000D78 = 00000000 00000000 00000000 00000000 
+20000D88 = 00000000 00000000 00000000 00000000 
+20000D98 = 00000000 00000000 00000000 00000000 
+20000DA8 = 00000000 00000000 00000000 00000000 
+20000DB8 = 00000000 00000000 00000000 00000000 
+20000DC8 = 00000000 00000000 00000000 00000000 
+J-Link>mem32 0x20000DD8 0x18
+20000DD8 = C0C00000 40C00000 C0C00000 40C00000 
+20000DE8 = 3F000000 40C00000 00000000 00000000 
+20000DF8 = 00000000 00000000 3F000000 40C00000 
+20000E08 = 00000000 00000000 00000000 00000000 
+20000E18 = 3F000000 40C00000 00000000 00000000 
+20000E28 = 00000000 00000000 3F000000 40C00000 
+J-Link>mem32 0x20000E38 0x18
+20000E38 = 00000000 00000000 00000000 00000000 
+20000E48 = 00000000 00000000 00000000 00000000 
+20000E58 = 00000000 00000000 00000000 00000000 
+20000E68 = 00000000 00000000 00000000 00000000 
+20000E78 = 00000000 00000000 00000000 00000000 
+20000E88 = 00000000 00000000 00000000 00000000 
+J-Link>q
+
+Script processing completed.
+

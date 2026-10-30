@@ -1,0 +1,16 @@
+// Read-only dump of the TF 0x0Axx payload buffers in SRAM (no halt).
+exitonerror 0
+connect
+mem32 0x2000003C 2
+mem32 0x20000044 1
+mem32 0x20000068 1
+mem32 0x20000070 1
+mem32 0x2000007C 1
+mem32 0x20000088 2
+mem32 0x20000098 2
+mem32 0x200000A0 2
+mem32 0x200000C0 1
+mem32 0x20000D78 0x18
+mem32 0x20000DD8 0x18
+mem32 0x20000E38 0x18
+q

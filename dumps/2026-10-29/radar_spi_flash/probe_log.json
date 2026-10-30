@@ -1,0 +1,24 @@
+{
+  "ids": {
+    "RES_AB": "13",
+    "JEDEC_9F": "5e6014",
+    "REMS_90": "5e13",
+    "UID_4B": "f5b87a9665b7705350504a3336324131",
+    "SR1_05": "00",
+    "SR2_35": "00",
+    "SR3_15": "00",
+    "SFDP_head": "53464450080101ff00070110300000ff",
+    "SECREG0_48": "53464450080101ff00070110300000ff5e000103700000ffffffffffffffffff...",
+    "SECREG1_48": "all FF",
+    "SECREG2_48": "all FF",
+    "SECREG3_48": "all FF"
+  },
+  "dump_size": 1048576,
+  "dump_identical": true,
+  "sha256": [
+    "e9a61b63e6149494effda28f77472219bfb0afe165c3f6f9125b728f1719b104",
+    "e9a61b63e6149494effda28f77472219bfb0afe165c3f6f9125b728f1719b104"
+  ],
+  "reset": "reset and run",
+  "sessions": 38
+}

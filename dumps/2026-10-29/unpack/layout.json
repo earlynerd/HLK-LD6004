@@ -1,0 +1,118 @@
+{
+  "header": {
+    "base": "0x0",
+    "burner_size": 544,
+    "vid": "0.01",
+    "flash_size": "0x7f000",
+    "fs_version": 11,
+    "block_align": 16,
+    "special_opt": "0xff",
+    "pid": "AC632N\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd"
+  },
+  "top": [
+    {
+      "name": "uboot.boot",
+      "hdr_off": "0x20",
+      "data_off": "0xa0",
+      "size": 4831,
+      "flags": "0x40",
+      "index": 0,
+      "data_crc_ok": false
+    },
+    {
+      "name": "isd_config.ini",
+      "hdr_off": "0x40",
+      "data_off": "0x137f",
+      "size": 132,
+      "flags": "0x2",
+      "index": 0,
+      "data_crc_ok": true
+    },
+    {
+      "name": "app_dir_head",
+      "hdr_off": "0x60",
+      "data_off": "0x2000",
+      "size": 4294967295,
+      "flags": "0x81",
+      "index": 0
+    },
+    {
+      "name": "key_mac",
+      "hdr_off": "0x80",
+      "data_off": "0x7f000",
+      "size": 4096,
+      "flags": "0x12",
+      "index": 65535,
+      "data_crc_ok": false
+    }
+  ],
+  "chipkey_from_isd_config": "0xa80f",
+  "chipkey_used": "0xa80f",
+  "app": [
+    {
+      "name": "app.bin",
+      "hdr_off": "0x2020",
+      "data_off": "0x2120",
+      "size": 182716,
+      "flags": "0x82",
+      "index": 0,
+      "data_crc_ok": true
+    },
+    {
+      "name": "cfg_tool.bin",
+      "hdr_off": "0x2040",
+      "data_off": "0x2eadc",
+      "size": 722,
+      "flags": "0x82",
+      "index": 0,
+      "data_crc_ok": true
+    },
+    {
+      "name": "VM",
+      "hdr_off": "0x2060",
+      "data_off": "0x32000",
+      "size": 315392,
+      "flags": "0x12",
+      "index": 0,
+      "data_crc_ok": false
+    },
+    {
+      "name": "PRCT",
+      "hdr_off": "0x2080",
+      "data_off": "0x2000",
+      "size": 196608,
+      "flags": "0x92",
+      "index": 0,
+      "data_crc_ok": false
+    },
+    {
+      "name": "BTIF",
+      "hdr_off": "0x20a0",
+      "data_off": "0x7f000",
+      "size": 4096,
+      "flags": "0x92",
+      "index": 0,
+      "data_crc_ok": false
+    },
+    {
+      "name": "EXIF",
+      "hdr_off": "0x20c0",
+      "data_off": "0x80000",
+      "size": 4096,
+      "flags": "0x92",
+      "index": 1
+    }
+  ],
+  "res": [
+    {
+      "name": "p11_code.bin",
+      "hdr_off": "0x2edae",
+      "data_off": "0x2edce",
+      "size": 4096,
+      "flags": "0x82",
+      "index": 1,
+      "data_crc_ok": true
+    }
+  ],
+  "entry_point": "0x1e00120"
+}

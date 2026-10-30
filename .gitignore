@@ -1,0 +1,50 @@
+# --- Vendor material (see CLAUDE.md "Scope and ground rules") ---
+# dumps/ (stock flash backups) is tracked so others can analyse it.
+
+# Extracted vendor images, disassembly, decompiled C, strings, Ghidra project.
+# Only our own Ghidra scripts are tracked.
+#analysis/adt6101p/*
+#!analysis/adt6101p/ghidra_scripts/
+
+# Vendor documents and downloads, kept as received
+vendor/
+/LD6004 *.pdf
+
+# --- Local / scratch ---
+
+# Scratch scripts and outputs (keepers move to tools/)
+tmp/
+
+# Phone photos carry GPS EXIF; strip metadata before adding any
+photos/
+
+# Probe run logs
+tools/jlink/*.log
+
+# Build outputs (tools/jlink/adt_spi_stub.bin is loaded at runtime, so it stays)
+firmware/*.bin
+firmware/*.elf
+firmware/*.map
+*.o
+*.d
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Ghidra
+*.lock
+*.lock~
+
+# Editors / OS
+.vscode/
+.idea/
+*.swp
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# Claude Code local settings
+.claude/settings.local.json
