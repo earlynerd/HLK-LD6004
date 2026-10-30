@@ -9,7 +9,7 @@ The radar SoC (Andar ADT6101P) has no public datasheet, register map or SDK. The
 ## Scope and ground rules
 
 - **Our hardware only.** All reading, debugging and flashing is done on modules we bought and physically hold. The chips have no readout protection; no security mechanism is being bypassed.
-- **Clean rewrite, not a patched vendor image.** Vendor firmware is studied to document hardware behaviour: register addresses, init sequences, timing, data formats and calibration storage. Findings go into our own docs (`ARCHITECTURE.md`, `DEBUG_LOG.md`), and the new firmware is written from those docs. The stock flash dumps in `dumps/` are published in the repo so others can analyse them; `analysis/` outputs (extracted images, disassembly, decompiled C, Ghidra project) and `vendor/` downloads stay local (see `.gitignore`).
+- **Clean rewrite, not a patched vendor image.** Vendor firmware is studied to document hardware behaviour: register addresses, init sequences, timing, data formats and calibration storage. Findings go into our own docs (`ARCHITECTURE.md`, `DEBUG_LOG.md`), and the new firmware is written from those docs. The stock flash dumps in `dumps/` and the `analysis/` outputs (extracted images, disassembly, decompiled C, Ghidra project) are published in the repo so others can analyse them; `vendor/` downloads stay local (see `.gitignore`).
 - **Reversible.** Verified stock backups of every flash are kept in `dumps/` (hashes in `ARCHITECTURE.md`), so any unit can be restored to factory firmware.
 - **Interfaces stay as designed.** The rewrite uses the module's existing header UART/SWD and, optionally, the onboard BLE bridge. It is a sensor for our own use, not something deployed on others' devices or networks.
 
