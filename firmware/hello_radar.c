@@ -15,9 +15,18 @@
  *   Pinmux 0x40020030 + 4*pin: P00=1, P01=0x81 for UART0.                    [FW][HW]
  *   DSP engine 0x40021000 (channels src/dst/ctrl, status +0x58).             [FW][HW]
  *   ADC sample port 0x40023000 (DMA source).                                 [HW]
- *   RF synth 0x40008000 (+0/+4 = Hz).                                        [HW]
+ *   0x40008000 = ARM SP805 WATCHDOG (ARM DDI 0270B): +0x00 Load, +0x04 Value,
+ *   +0x08 Control (bit0 INTEN, bit1 RESEN), +0x0C IntClr (W), +0x10 RIS,
+ *   +0x14 MIS, +0xC00 Lock (key 0x1ACCE551). Stock arms 500e6 ticks @
+ *   ~100 MHz (~5 s) with INTEN|RESEN; WDOGINT is wired to the core NMI.     [DDI0270B][FW][HW]
  *   Front end 0x40003000 (config regs from +0x100 up).                       [FW][HW]
  *   Range-Doppler map (stock App2 profile) at 0x20010000.                    [FW]
+ *
+ * WATCHDOG HANDOVER (open, 2026-10-31): if loaded on top of a running stock
+ * App1, the SP805 stays armed and its ISRs stay enabled while our vector
+ * table takes over at 0x8000 -> NMI at the next timeout (~5 s) lands in
+ * default_handler, second timeout -> WDOGRES core reset. A cold-start image
+ * controls the watchdog itself (it resets unarmed, counter 0xFFFFFFFF).
  */
 
 #include <stdint.h>
@@ -83,7 +92,7 @@ void reset_handler(void)
 
     /* Live radar engine state (read-only). */
     dump_block("front-end 0x40003100", (const volatile uint32_t *)0x40003100, 0x60);
-    dump_block("rf synth  0x40008000", (const volatile uint32_t *)0x40008000, 4);
+    dump_block("wdt     0x40008000",   (const volatile uint32_t *)0x40008000, 4);
     dump_block("timer   0x4000C000",   (const volatile uint32_t *)0x4000C000, 0x20);
     dump_block("dsp     0x40021000",   (const volatile uint32_t *)0x40021000, 0x20);
     dump_block("adc port 0x40023000",  (const volatile uint32_t *)0x40023000, 8);

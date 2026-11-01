@@ -14,6 +14,17 @@ source is level-asserted and re-pends instantly, so the fix is masking the
 source instead.
 
 Writes only the core's ICSR. Ends with reset-and-run.
+
+SUPERSEDED (2026-10-31). Two static errors in the premise, both settled by
+the chip's own TRM and the SP805 TRM:
+- ICSR bit 27 on Cortex-M3 (ARM DDI 0337G) is PENDSVCLR, not an NMI clear;
+  the M3 has NO way to clear a pending NMI via ICSR at all (only
+  NMIPENDSET, bit 31). So this run never cleared anything, and its failure
+  does not prove a "level-asserted" source.
+- The source is the SP805 watchdog's WDOGINT (block 0x40008000, ARM DDI
+  0270B). Its interrupt is cleared by unlocking (+0xC00 = 0x1ACCE551) and
+  writing +0x0C WdogIntClr, which also reloads the counter. That is the
+  lever probe_wdt.py uses.
 """
 import json
 import os
@@ -23,8 +34,8 @@ import time
 import pylink
 
 ICSR = 0xE000ED04
-NMICLR = 1 << 27          # write 1 to clear a pending NMI
-NMI_PENDING = 1 << 31     # reads back as pending-NMI state
+NMICLR = 1 << 27          # MISNAMED: on this part (DDI 0337G) bit 27 = PENDSVCLR
+NMI_PENDING = 1 << 31     # NMIPENDSET; reads back as pending-NMI state
 
 WATCH = {
     "ICSR":    (ICSR, 1),

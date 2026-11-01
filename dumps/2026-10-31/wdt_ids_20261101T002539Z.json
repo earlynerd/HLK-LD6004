@@ -1,0 +1,50 @@
+{
+  "mode": "ids",
+  "utc": "20261101T002539Z",
+  "samples": [
+    {
+      "t": 0.0,
+      "tag": "running baseline",
+      "load": 500000000,
+      "value": 492505555,
+      "control": 3,
+      "ris": 0,
+      "mis": 0,
+      "lock": 1
+    },
+    {
+      "t": 0.5,
+      "tag": "running +0.5s",
+      "load": 500000000,
+      "value": 497956986,
+      "control": 3,
+      "ris": 0,
+      "mis": 0,
+      "lock": 1
+    }
+  ],
+  "count_rate_hz": -10902862.0,
+  "ids": {
+    "PeriphID0": 36,
+    "PeriphID1": 184,
+    "PeriphID2": 27,
+    "PeriphID3": 0,
+    "PCellID0": 13,
+    "PCellID1": 240,
+    "PCellID2": 5,
+    "PCellID3": 177,
+    "ITCR": 0,
+    "ITOP": 0
+  },
+  "id_match_ddi0270b": {
+    "PeriphID0": false,
+    "PeriphID1": false,
+    "PeriphID2": false,
+    "PeriphID3": true,
+    "PCellID0": true,
+    "PCellID1": true,
+    "PCellID2": true,
+    "PCellID3": true
+  },
+  "reset": "reset and run"
+}

@@ -14,6 +14,12 @@ Two questions in one run:
    is the NMI source (or its status bit).
 
 Read-only. Ends with reset-and-run.
+
+SUPERSEDED in interpretation (2026-10-31): 0x40008000 is an Arm SP805
+watchdog (ARM DDI 0270B). "Wrap" = timeout; the two "wrap-only" words are
+WdogRIS/WdogMIS; the NMI is WDOGINT; the AP death ~2 timeouts later is
+WDOGRES (the watchdog reset output), not a core lockup. See
+tools/jlink/probe_wdt.py and DEBUG_LOG 2026-10-31.
 """
 import json
 import os
@@ -103,9 +109,11 @@ def main():
         print("\nlast good sample before AP died:", last_good, flush=True)
         if last_good:
             d = last_good["core"]["DHCSR"]
-            # DHCSR status bits are 1-4, NOT 16-19 (those are the C_* control bits).
-            print(f"  S_LOCKUP={bool(d & (1 << 4))} S_SLEEP={bool(d & (1 << 2))} "
-                  f"S_HALT={bool(d & (1 << 3))}  ICSR={last_good['core']['ICSR']:#010x}",
+            # Cortex-M3 TRM (ARM DDI 0337G) Table 10-2: the status bits are
+            # 16-19, and DHCSR[31:16] "reads back as status bits [25:16]" —
+            # so the mirrored copy lives in the top halfword too.
+            print(f"  S_LOCKUP={bool(d & (1 << 19))} S_SLEEP={bool(d & (1 << 18))} "
+                  f"S_HALT={bool(d & (1 << 17))}  ICSR={last_good['core']['ICSR']:#010x}",
                   flush=True)
 
         # Which words move only at wraps?
